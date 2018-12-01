@@ -1,5 +1,6 @@
-use std::collections::HashSet;
-
+//use std::collections::HashSet;
+//use std::iter::repeat;
+use fnv::FnvHashSet;
 
 // Nice and easy, lemon squeezy.
 #[aoc_generator(day1)]
@@ -23,7 +24,7 @@ pub fn solve_part1(input: &[i32]) -> i32 {
 #[aoc(day1, part2)]
 pub fn solve_part2(input: &[i32]) -> i32 {
     let mut sum: i32 = 0;
-    let mut seen: HashSet<i32> = HashSet::new();
+    let mut seen: FnvHashSet<i32> = FnvHashSet::default();
     let mut index: usize = 0;
     while !seen.contains(&sum) {
         seen.insert(sum);

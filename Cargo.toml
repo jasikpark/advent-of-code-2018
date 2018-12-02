@@ -9,4 +9,6 @@ bench = false
 
 [dependencies]
 aoc-runner = "0.1.0"
-aoc-runner-derive = "0.1.0"
+aoc-runner-derive = "0.1.4"
+fnv = "1.0.6"
+hashbrown = "0.1.6"

@@ -1,10 +1,7 @@
 use std::collections::HashSet;
-//use std::iter::repeat;
 extern crate fnv;
 use fnv::FnvHashSet;
-
 extern crate hashbrown;
-
 use hashbrown::HashSet as HashbrownHashSet;
 
 // Nice and easy, lemon squeezy.
@@ -72,4 +69,20 @@ pub fn solve_part2_hashbrown(input: &[i32]) -> i32 {
         }
     }
     sum
+}
+
+#[aoc(day1, part2 HashbrownForLoop)]
+pub fn solve_part2_hashbrown_forloop(input: &[i32]) -> i32 {
+    let mut sum: i32 = 0;
+    let mut seen: HashbrownHashSet<i32> = HashbrownHashSet::new();
+    loop {
+        for f in input.iter().cycle() {
+            if seen.contains(&sum) {
+                return sum;
+            } else {
+                seen.insert(sum);
+                sum += f;
+            }
+        }
+    }
 }

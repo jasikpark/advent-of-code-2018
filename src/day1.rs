@@ -12,7 +12,8 @@ pub fn input_generator(input: &str) -> Vec<i32> {
         .map(|l| {
             let num = l.trim().parse();
             num.unwrap()
-        }).collect()
+        })
+        .collect()
 }
 
 #[aoc(day1, part1)]
@@ -71,18 +72,17 @@ pub fn solve_part2_hashbrown(input: &[i32]) -> i32 {
     sum
 }
 
-#[aoc(day1, part2 HashbrownForLoop)]
+#[aoc(day1, part2, HashbrownForLoop)]
 pub fn solve_part2_hashbrown_forloop(input: &[i32]) -> i32 {
     let mut sum: i32 = 0;
     let mut seen: HashbrownHashSet<i32> = HashbrownHashSet::new();
-    loop {
-        for f in input.iter().cycle() {
-            if seen.contains(&sum) {
-                return sum;
-            } else {
-                seen.insert(sum);
-                sum += f;
-            }
+    for f in input.iter().cycle() {
+        if seen.contains(&sum) {
+            return sum;
+        } else {
+            seen.insert(sum);
+            sum += f;
         }
     }
+    unreachable!()
 }

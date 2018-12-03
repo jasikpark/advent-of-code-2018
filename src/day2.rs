@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 #[aoc(day2, part1)]
 pub fn solve_part1(input: &str) -> i32 {
-    let chars_count_iter: () = input
+    let _chars_count_iter = input
         .lines()
         .map(|word: &str| {
             word.chars().fold(HashMap::new(), |mut char_counts, c| {
@@ -11,7 +11,6 @@ pub fn solve_part1(input: &str) -> i32 {
                 char_counts
             })
         })
-        .iter()
-        .map(|char_counts: HashMap<char, usize>| char_counts.iter().filter(&|_, count| count == 2));
+        .map(|char_counts: HashMap<char, usize>| char_counts.iter().filter(|(_, count)| **count == 2usize));
     3
 }

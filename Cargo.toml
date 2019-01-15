@@ -1,14 +1,16 @@
 [package]
-name = "advent-of-code-2018"
-version = "0.1.0"
 authors = ["Caleb Jasik <calebjasik@jasik.xyz>"]
 edition = "2018"
-
-[lib]
-bench = false
+name = "advent-of-code-2018"
+version = "0.1.0"
 
 [dependencies]
 aoc-runner = "0.1.0"
 aoc-runner-derive = "0.1.4"
 fnv = "1.0.6"
 hashbrown = "0.1.6"
+serde = "1.0.80"
+serde_derive = "1.0.80"
+
+[lib]
+bench = false
